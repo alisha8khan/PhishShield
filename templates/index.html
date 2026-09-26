@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="PhishShield - AI Website Scanner">
+
+    <title>PhishShield | AI Website Scanner</title>
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <span>
+                Phish<span class="brand-highlight">Shield</span>
+            </span>
+
+        </div>
+
+
+        <div class="nav-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                AI Protection Active
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+
+            <!-- Security Badge -->
+
+            <div class="security-badge">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                AI WEBSITE SCANNER
+
+            </div>
+
+
+            <!-- Heading -->
+
+            <h1>
+
+                Is this website
+
+                <span>safe?</span>
+
+            </h1>
+
+
+            <!-- Description -->
+
+            <p class="hero-description">
+
+                Check a website URL with PhishShield and identify
+                potentially unsafe or phishing websites.
+
+            </p>
+
+
+            <!-- Scanner -->
+
+            <div class="scanner-card">
+
+
+                <div class="scanner-header">
+
+                    <div>
+
+                        <h2>
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Scan a Website
+
+                        </h2>
+
+                        <p>
+
+                            Enter a URL below to check its security status.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="scanner-icon">
+
+                        <i class="fa-solid fa-shield"></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Scanner Form -->
+
+                <form
+                    action="/"
+                    method="post"
+                    class="scanner-form">
+
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-link input-icon"></i>
+
+                        <input
+                            type="text"
+                            name="url"
+                            id="url"
+                            placeholder="https://example.com"
+                            value="{{ url if url else '' }}"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="scan-button">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Scan URL
+
+                    </button>
+
+                </form>
+
+
+                <!-- Scanner Note -->
+
+                <div class="scanner-note">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Enter a website URL to check whether it appears
+                    safe or unsafe.
+
+                </div>
+
+            </div>
+
+
+            <!-- Result -->
+
+            {% if url %}
+
+            <div class="result-card">
+
+
+                <!-- Scanned URL -->
+
+                <div class="scanned-url">
+
+                    <span class="result-label">
+
+                        SCANNED URL
+
+                    </span>
+
+
+                    <div class="url-display">
+
+                        <i class="fa-solid fa-link"></i>
+
+                        <span>
+                            {{ url }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Result Content -->
+
+                <div class="result-content">
+
+
+                    <div
+                        id="result-icon"
+                        class="result-icon">
+
+                        <i
+                            id="result-icon-symbol"
+                            class="fa-solid fa-shield-halved">
+                        </i>
+
+                    </div>
+
+
+                    <div class="result-info">
+
+                        <span class="result-label">
+
+                            SECURITY ANALYSIS
+
+                        </span>
+
+
+                        <h2 id="prediction">
+
+                            Analyzing...
+
+                        </h2>
+
+
+                        <p id="result-message">
+
+                            Checking the website security status.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Result Buttons -->
+
+                <div class="result-actions">
+
+
+                    <button
+                        class="safe-button"
+                        id="button1"
+                        type="button"
+                        onclick="window.open('{{ url }}', '_blank')">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        Continue to Website
+
+                    </button>
+
+
+                    <button
+                        class="unsafe-button"
+                        id="button2"
+                        type="button">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        Continue Anyway
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- Information Features -->
+
+    <section class="features-section">
+
+
+        <!-- Website Protection -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+
+            <div class="feature-content">
+
+                <h3>
+
+                    Website Protection
+
+                </h3>
+
+
+                <p>
+
+                    Check a URL before opening it.
+
+                </p>
+
+
+                <div class="feature-tooltip">
+
+                    <strong>
+
+                        Website Protection
+
+                    </strong>
+
+
+                    <span>
+
+                        PhishShield checks a website URL for signs
+                        associated with phishing and helps you identify
+                        potentially unsafe websites before you open them.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Phishing Link Risks -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-link"></i>
+
+            </div>
+
+
+            <div class="feature-content">
+
+                <h3>
+
+                    Phishing Link Risks
+
+                </h3>
+
+
+                <p>
+
+                    Understand what a malicious link can do.
+
+                </p>
+
+
+                <div class="feature-tooltip">
+
+                    <strong>
+
+                        Phishing Link Risks
+
+                    </strong>
+
+
+                    <span>
+
+                        A phishing link may take you to a fake login
+                        page designed to steal your passwords, banking
+                        details, or personal information. PhishShield
+                        helps you check the URL before visiting it.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Before You Click -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-arrow-pointer"></i>
+
+            </div>
+
+
+            <div class="feature-content">
+
+                <h3>
+
+                    Before You Click
+
+                </h3>
+
+
+                <p>
+
+                    Scan suspicious links before visiting.
+
+                </p>
+
+
+                <div class="feature-tooltip">
+
+                    <strong>
+
+                        Before You Click
+
+                    </strong>
+
+
+                    <span>
+
+                        Received a suspicious website link through a message,
+                        email, or social media? Check it with PhishShield
+                        first. It provides a security result so you can
+                        make a more informed decision before opening
+                        the website.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-line"></div>
+
+
+        <div class="footer-content">
+
+
+            <p>
+
+                © 2026 PhishShield · Created by Alisha Khan
+
+            </p>
+
+
+            <div class="footer-links">
+
+
+                <a
+                    href="mailto:alisha.khan5678910@gmail.com">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    alisha.khan5678910@gmail.com
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/khan-alisha-8237b0424/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                    LinkedIn
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Unsafe Popup -->
+
+    <div
+        id="unsafeModal"
+        class="unsafe-modal">
+
+
+        <div class="modal-overlay"></div>
+
+
+        <div class="modal-box">
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="warning-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <h2>
+
+                Website Unsafe
+
+            </h2>
+
+
+            <p>
+
+                This website may be unsafe or associated
+                with phishing activity.
+
+            </p>
+
+
+            <div class="modal-buttons">
+
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelButton">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="modal-continue-button"
+                    id="modalContinueButton">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    Continue Anyway
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        let x = parseFloat('{{ xx }}');
+
+
+        const prediction =
+            document.getElementById("prediction");
+
+
+        const resultMessage =
+            document.getElementById("result-message");
+
+
+        const resultIcon =
+            document.getElementById("result-icon");
+
+
+        const resultIconSymbol =
+            document.getElementById("result-icon-symbol");
+
+
+        const button1 =
+            document.getElementById("button1");
+
+
+        const button2 =
+            document.getElementById("button2");
+
+
+        const unsafeModal =
+            document.getElementById("unsafeModal");
+
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+
+        const cancelButton =
+            document.getElementById("cancelButton");
+
+
+        const modalContinueButton =
+            document.getElementById("modalContinueButton");
+
+
+        /* SAFE WEBSITE */
+
+        if (!isNaN(x) && x >= 0.50) {
+
+            let percentage =
+                (x * 100).toFixed(2);
+
+
+            prediction.innerHTML =
+                percentage + "% Safe";
+
+
+            resultMessage.innerHTML =
+                "This URL appears to be safe.";
+
+
+            resultIcon.classList.add(
+                "safe-result"
+            );
+
+
+            resultIconSymbol.className =
+                "fa-solid fa-shield-halved";
+
+
+            button1.style.display =
+                "inline-flex";
+
+
+            button2.style.display =
+                "none";
+
+        }
+
+
+        /* UNSAFE WEBSITE */
+
+        else if (!isNaN(x) && x >= 0 && x < 0.50) {
+
+            let percentage =
+                ((1 - x) * 100).toFixed(2);
+
+
+            prediction.innerHTML =
+                percentage + "% Unsafe";
+
+
+            resultMessage.innerHTML =
+                "This URL may be unsafe or associated with phishing activity.";
+
+
+            resultIcon.classList.add(
+                "unsafe-result"
+            );
+
+
+            resultIconSymbol.className =
+                "fa-solid fa-triangle-exclamation";
+
+
+            button1.style.display =
+                "none";
+
+
+            button2.style.display =
+                "inline-flex";
+
+
+            /* Show popup */
+
+            setTimeout(function () {
+
+                unsafeModal.classList.add(
+                    "show"
+                );
+
+            }, 400);
+
+
+            /* Continue Anyway */
+
+            button2.addEventListener(
+                "click",
+                function () {
+
+                    unsafeModal.classList.add(
+                        "show"
+                    );
+
+                }
+            );
+
+
+            modalContinueButton.addEventListener(
+                "click",
+                function () {
+
+                    window.open(
+                        '{{ url }}',
+                        '_blank'
+                    );
+
+
+                    unsafeModal.classList.remove(
+                        "show"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* Close Popup */
+
+        function closeModal() {
+
+            unsafeModal.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        cancelButton.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        document.querySelector(
+            ".modal-overlay"
+        ).addEventListener(
+            "click",
+            closeModal
+        );
+
+    </script>
+
+</body>
+
+</html>
