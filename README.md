@@ -77,3 +77,17 @@ PhishShield/
 ├── requirements.txt
 ├── test-url.txt
 └── .gitignore
+
+## About the Author
+
+Alisha Khan
+
+Computer Science Graduate with a focus on Artificial Intelligence and Data Science.
+
+I am interested in Machine Learning, Data Analysis, Cybersecurity, and Artificial Intelligence.
+
+This project is part of my learning and project work in Machine Learning and Cybersecurity.
+
+LinkedIn: [Alisha Khan](https://www.linkedin.com/in/khan-alisha-8237b0424/)
+
+Email: [alisha.khan5678910@gmail.com](mailto:alisha.khan5678910@gmail.com)
